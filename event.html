@@ -1,476 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <title>
-    AWS Student Builder Group | Event
-  </title>
-
+  <title>AWS Student Builder Group | Event</title>
 
   <!-- Google Font -->
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  />
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
 
-
   <!-- Font Awesome -->
-
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
 
-
   <!-- Main CSS -->
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  />
-
+  <link rel="stylesheet" href="style.css" />
 
   <style>
-
     /* =====================================================
        EVENT PAGE
     ===================================================== */
 
     .event-detail-page {
       min-height: 100vh;
-
-      padding:
-        130px
-        20px
-        80px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ffffff,
-          #fffaf3,
-          #f8fafc
-        );
-
+      padding: 130px 20px 80px;
+      background: linear-gradient(135deg, #ffffff, #fffaf3, #f8fafc);
       position: relative;
-
       overflow: hidden;
     }
 
-
     .event-detail-background {
       position: absolute;
-
       inset: 0;
-
       pointer-events: none;
     }
 
-
     .event-detail-background::before {
       content: "";
-
       position: absolute;
-
       width: 500px;
       height: 500px;
-
       border-radius: 50%;
-
-      background:
-        rgba(255, 153, 0, 0.10);
-
+      background: rgba(255, 153, 0, 0.10);
       filter: blur(80px);
-
       top: 5%;
       right: 10%;
     }
 
-
     .event-detail-container {
       max-width: 950px;
-
       margin: auto;
-
       position: relative;
-
       z-index: 2;
     }
 
-
     .event-back {
       display: inline-flex;
-
       align-items: center;
-
       gap: 8px;
-
       margin-bottom: 30px;
-
       color: #64748b;
-
       font-size: 14px;
-
       font-weight: 600;
-
-      transition:
-        color 0.25s ease,
-        transform 0.25s ease;
+      transition: color 0.25s ease, transform 0.25s ease;
     }
-
 
     .event-back:hover {
       color: #ff9900;
-
       transform: translateX(-3px);
     }
 
-
     .event-detail-card {
       position: relative;
-
       background: #ffffff;
-
       border: 1px solid #e5e7eb;
-
       border-radius: 24px;
-
       padding: 55px;
-
-      box-shadow:
-        0 25px 70px
-        rgba(15, 23, 42, 0.09);
-
+      box-shadow: 0 25px 70px rgba(15, 23, 42, 0.09);
       overflow: hidden;
     }
 
-
     .event-detail-card::before {
       content: "";
-
       position: absolute;
-
       top: 0;
       left: 0;
-
       width: 100%;
       height: 5px;
-
-      background:
-        linear-gradient(
-          90deg,
-          #ff9900,
-          #ffb84d,
-          #ff9900
-        );
+      background: linear-gradient(90deg, #ff9900, #ffb84d, #ff9900);
     }
-
 
     .event-detail-category {
       display: inline-flex;
-
       align-items: center;
-
       gap: 8px;
-
-      padding:
-        7px
-        13px;
-
+      padding: 7px 13px;
       border-radius: 999px;
-
-      background:
-        rgba(255, 153, 0, 0.08);
-
-      border:
-        1px solid
-        rgba(255, 153, 0, 0.22);
-
+      background: rgba(255, 153, 0, 0.08);
+      border: 1px solid rgba(255, 153, 0, 0.22);
       color: #b45309;
-
       font-size: 12px;
-
       font-weight: 800;
-
       letter-spacing: 0.5px;
     }
 
-
     .event-detail-date {
       margin-top: 22px;
-
       color: #64748b;
-
       font-size: 14px;
-
       font-weight: 600;
     }
 
-
     .event-detail-title {
       margin-top: 12px;
-
       max-width: 800px;
-
       color: #172033;
-
-      font-size:
-        clamp(
-          34px,
-          5vw,
-          58px
-        );
-
+      font-size: clamp(34px, 5vw, 58px);
       line-height: 1.08;
-
       letter-spacing: -2px;
-
       font-weight: 800;
     }
-
 
     .event-detail-title::first-letter {
       color: #ff9900;
     }
 
-
     .event-detail-description {
       max-width: 750px;
-
       margin-top: 22px;
-
       color: #64748b;
-
       font-size: 16px;
-
       line-height: 1.85;
     }
 
-
     .event-detail-divider {
       width: 100%;
-
       height: 1px;
-
       background: #e5e7eb;
-
-      margin:
-        35px
-        0;
+      margin: 35px 0;
     }
-
 
     .event-detail-info {
       display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
 
-
     .event-info-box {
       padding: 20px;
-
       border-radius: 14px;
-
       background: #f8fafc;
-
       border: 1px solid #e5e7eb;
     }
 
-
     .event-info-box i {
       color: #ff9900;
-
       font-size: 19px;
-
       margin-bottom: 8px;
     }
 
-
     .event-info-box span {
       display: block;
-
       color: #64748b;
-
       font-size: 12px;
-
       margin-bottom: 3px;
     }
 
-
     .event-info-box strong {
       color: #172033;
-
       font-size: 14px;
     }
-
 
     .event-home-btn {
       display: inline-flex;
-
       align-items: center;
-
       gap: 8px;
-
       margin-top: 30px;
-
-      padding:
-        12px
-        20px;
-
+      padding: 12px 20px;
       border-radius: 9px;
-
       background: #ff9900;
-
       color: #111827;
-
       font-size: 14px;
-
       font-weight: 700;
-
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+      transition: transform 0.25s ease, background 0.25s ease;
     }
-
 
     .event-home-btn:hover {
       background: #e68900;
-
       transform: translateY(-2px);
     }
 
-
     @media (max-width: 650px) {
-
       .event-detail-page {
-        padding:
-          110px
-          15px
-          50px;
+        padding: 110px 15px 50px;
       }
-
 
       .event-detail-card {
         padding: 35px 23px;
-
         border-radius: 18px;
       }
 
-
       .event-detail-title {
         font-size: 36px;
-
         letter-spacing: -1.5px;
       }
-
 
       .event-detail-description {
         font-size: 14px;
       }
 
-
       .event-detail-info {
         grid-template-columns: 1fr;
       }
-
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-
   <!-- ================= NAVBAR ================= -->
-
   <nav class="navbar">
-
     <div class="nav-container">
-
       <a href="index.html" class="brand">
-
         <div class="logo-wrapper">
-
           <img
             src="assets/cloudclublogo.png"
             alt="AWS Student Builder Group Logo"
             class="nav-logo"
           />
-
           <img
             src="assets/cujlogo.png"
             alt="Central University Of Jammu Logo"
             class="nav-logo"
           />
-
         </div>
-
       </a>
 
-
       <ul class="nav-links">
-
-        <li>
-          <a href="index.html#about">
-            About
-          </a>
-        </li>
-
-        <li>
-          <a href="index.html#why-join">
-            Why Join
-          </a>
-        </li>
-
-        <li>
-          <a href="index.html#upcoming-events">
-            Upcoming Events
-          </a>
-        </li>
-
-        <li>
-          <a href="index.html#gallery">
-            Gallery
-          </a>
-        </li>
-
-        <li>
-          <a href="index.html#mentors">
-            Mentors
-          </a>
-        </li>
-
-        <li>
-          <a href="index.html#members">
-            Team
-          </a>
-        </li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#why-join">Why Join</a></li>
+        <li><a href="index.html#upcoming-events">Upcoming Events</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#mentors">Mentors</a></li>
+        <li><a href="index.html#members">Team</a></li>
 
         <li>
           <a
@@ -482,50 +261,33 @@
             Join Us
           </a>
         </li>
-
       </ul>
-
     </div>
-
   </nav>
 
-
   <!-- ================= EVENT DETAIL ================= -->
-
   <main class="event-detail-page">
-
     <div class="event-detail-background"></div>
 
-
     <div class="event-detail-container">
-
 
       <a
         href="index.html#past-events"
         class="event-back"
       >
-
         <i class="fa-solid fa-arrow-left"></i>
-
         Back to Events
-
       </a>
 
-
       <article class="event-detail-card">
-
 
         <span
           class="event-detail-category"
           id="eventCategory"
         >
-
           <i class="fa-brands fa-aws"></i>
-
           AWS Community Event
-
         </span>
-
 
         <p
           class="event-detail-date"
@@ -534,7 +296,6 @@
           Event Date
         </p>
 
-
         <h1
           class="event-detail-title"
           id="eventTitle"
@@ -542,78 +303,45 @@
           AWS Student Builder Group Event
         </h1>
 
-
         <p
           class="event-detail-description"
           id="eventDescription"
         >
-          Explore the latest AWS Student Builder Group
-          activities, technical sessions and community events.
+          Explore the latest AWS Student Builder Group activities, technical
+          sessions and community events.
         </p>
-
 
         <div class="event-detail-divider"></div>
 
-
         <div class="event-detail-info">
 
-
           <div class="event-info-box">
-
             <i class="fa-solid fa-building-columns"></i>
-
-            <span>
-              Organization
-            </span>
-
-            <strong>
-              AWS Student Builder Group
-            </strong>
-
+            <span>Organization</span>
+            <strong>AWS Student Builder Group</strong>
           </div>
-
 
           <div class="event-info-box">
-
             <i class="fa-solid fa-location-dot"></i>
-
-            <span>
-              Institution
-            </span>
-
-            <strong>
-              Central University Of Jammu
-            </strong>
-
+            <span>Institution</span>
+            <strong>Central University Of Jammu</strong>
           </div>
-
 
         </div>
-
 
         <a
           href="index.html#past-events"
           class="event-home-btn"
         >
-
-          Explore More Events
-
+          View Past Events
           <i class="fa-solid fa-arrow-right"></i>
-
         </a>
 
-
       </article>
-
     </div>
-
   </main>
 
-
   <!-- JavaScript -->
-
   <script src="script.js"></script>
-
 </body>
-
 </html>

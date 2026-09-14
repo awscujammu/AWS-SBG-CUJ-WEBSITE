@@ -524,16 +524,16 @@ const events = {
 
   "welcome-2026": {
 
-    date: "Coming Soon",
+    date: "14 Sep 2026",
 
     title:
       "Welcome 2026",
 
     description:
-      "The season-opening welcome event, featuring a lecture by our mentor Dr. Suresh Limkar (Suresh Sir) on cloud computing, followed by a live quiz session with prizes for the top scorers.",
+      "Our Welcome 2026 event featured a talk by Dr. Suresh Limkar on cloud computing and becoming a builder, followed by a fun quiz with shout-outs and prizes for the top scorers.",
 
     category:
-      "Upcoming • Lecture & Quiz"
+      "• Lecture & Quiz"
 
   },
 

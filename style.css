@@ -3201,3 +3201,106 @@ section[id], header[id], main[id] {
   .hero-mini-info { margin-top: 6px; }
   .hero-logo { width: min(100%, 21vw, 300px); max-height: 52svh; }
 }
+
+/* Desktop viewport fit: keep the hero content compact and prevent large blank bands. */
+@media (min-width: 851px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    box-sizing: border-box;
+    padding: clamp(28px, 4vh, 42px) 0 clamp(32px, 4.5vh, 48px);
+  }
+
+  .hero-container {
+    height: auto;
+    grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+    align-items: center;
+    gap: clamp(24px, 3.2vw, 54px);
+  }
+
+  .hero-content {
+    min-width: 0;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(42px, 3.6vw, 64px);
+    line-height: .98;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 10px;
+  }
+
+  .hero-description {
+    max-width: 760px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .hero-buttons {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .hero-buttons .btn {
+    min-height: 46px;
+    padding: 0 20px;
+  }
+
+  .community-countdown-card {
+    width: min(100%, 760px);
+    box-sizing: border-box;
+    margin: 0 0 10px;
+    padding: 12px 14px;
+  }
+
+  .community-countdown-units {
+    gap: 8px;
+    margin: 8px 0;
+  }
+
+  .community-countdown-units > div {
+    padding: 7px 4px;
+  }
+
+  .community-countdown-units strong {
+    font-size: clamp(22px, 1.8vw, 30px);
+  }
+
+  .community-countdown-footer {
+    font-size: clamp(12px, .95vw, 14px);
+    flex-wrap: wrap;
+  }
+
+  .community-register-btn {
+    width: fit-content;
+    min-height: 42px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 0 18px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .hero-logo-area {
+    min-height: 0;
+    height: auto;
+  }
+
+  .hero-logo {
+    width: min(100%, clamp(300px, 28vw, 390px));
+    max-height: 390px;
+  }
+}
+
+@media (min-width: 851px) and (max-height: 760px) {
+  .hero { padding-top: 20px; padding-bottom: 24px; }
+  .hero-logo { width: min(100%, 320px); max-height: 320px; }
+  .hero-content h1 { font-size: clamp(38px, 3.1vw, 52px); }
+  .hero-description { font-size: 13px; line-height: 1.4; margin-bottom: 10px; }
+  .community-countdown-card { padding: 8px 12px; }
+  .community-countdown-units { margin: 5px 0; }
+  .community-countdown-units > div { padding: 4px 3px; }
+  .community-register-btn { min-height: 38px; margin-top: 7px; }
+}

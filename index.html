@@ -27,6 +27,8 @@
 
     <!-- CSS -->
 
+    <link rel="icon" type="image/png" href="assets/cloudclublogo.png" />
+    <link rel="apple-touch-icon" href="assets/cloudclublogo.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -77,6 +79,9 @@
 
           <li>
             <a href="#upcoming-events">Upcoming Events</a>
+          </li>
+          <li>
+            <a href="community-day.html">Community Day</a>
           </li>
 
           <li>
@@ -155,6 +160,32 @@
             <a href="#upcoming-events" class="btn secondary"> View Events </a>
           </div>
 
+          <div class="community-countdown-card" aria-label="AWS Student Community Day countdown and registration">
+            <div class="community-countdown-heading">
+              <span class="community-countdown-dot"></span>
+              <span>AWS STUDENT COMMUNITY DAY</span>
+            </div>
+            <div class="community-countdown-units" id="heroCountdown">
+              <div><strong id="countdownDays">--</strong><span>DAYS</span></div>
+              <div><strong id="countdownHours">--</strong><span>HRS</span></div>
+              <div><strong id="countdownMinutes">--</strong><span>MIN</span></div>
+              <div><strong id="countdownSeconds">--</strong><span>SEC</span></div>
+            </div>
+            <div class="community-countdown-footer">
+              <i class="fa-regular fa-calendar"></i>
+              20 November 2026 <span>·</span> 10:00 AM – 6:00 PM IST
+            </div>
+            <a
+              class="community-register-btn"
+              href="https://www.meetup.com/aws-sbg-at-central-university-of-jammu/events/316878843/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Register for Community Day
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
           <div class="hero-mini-info">
             <div>
               <i class="fa-solid fa-code"></i>
@@ -185,9 +216,8 @@
       </div>
     </header>
 
-    <!-- Stats Bar -->
-
-    <section class="stats-section">
+    <!-- Community statistics -->
+    <section class="stats-section" aria-label="AWS SBG CUJ community statistics">
       <div class="section-container stats-container">
         <div class="stat-item">
           <span class="stat-number" data-target="500" data-suffix="+"> 0 </span>
@@ -406,73 +436,42 @@
         </div>
 
         <div class="upcoming-grid">
-          <!-- Upcoming Event 1 -->
-
-          <a href="event.html?event=cloud-tournament" class="upcoming-card">
-            <span class="upcoming-badge"> Upcoming </span>
-
-            <div class="upcoming-icon">
-              <i class="fa-solid fa-trophy"></i>
-            </div>
-
-            <h3>Cloud Tournament</h3>
-
-            <p>
-              A gamified, team based cloud competition in the spirit of AWS
-              GameDay and AWS Cloud Quest tournaments. Teams will work through
-              live, sandboxed AWS labs and real-world scenario challenges
-              covering services like EC2, S3, IAM and networking. Racing against
-              the clock and each other on a shared leaderboard. No prior AWS
-              experience is required, just curiosity and a willingness to build
-              under pressure.
-            </p>
-
-            <ul class="upcoming-meta">
-              <li>
-                <i class="fa-solid fa-laptop-code"></i>
-                Online cloud labs
-              </li>
-              <li>
-                <i class="fa-solid fa-ranking-star"></i>
-                Live leaderboard
-              </li>
-            </ul>
-
-            <span class="event-link">
-              View Event
-              <i class="fa-solid fa-arrow-right"></i>
-            </span>
-          </a>
-
           <!-- Upcoming Event 2 -->
 
-          <a href="event.html?event=community-day" class="upcoming-card">
-            <span class="upcoming-badge"> November 2026 </span>
+          <a href="community-day.html" class="upcoming-card">
+            <span class="upcoming-badge"> 20 November 2026 </span>
 
             <div class="upcoming-icon">
               <i class="fa-solid fa-people-group"></i>
             </div>
 
-            <h3>AWS Student Community Day</h3>
+            <h3>AWS Student Community Day Jammu</h3>
 
             <p>
-              Modeled on AWS's own Community Day format held across cities in
-              India every year, this will be our chapter's take on a full day of
-              community led cloud learning. Expect technical talks on AWS
-              services, generative AI and DevOps, hands on demo stations, and
-              open conversations with AWS enthusiasts, alumni and community
-              builders. A peer to peer event where students learn from students
-              as much as from speakers.
+              Join students, educators, developers and community builders for a
+              full day of cloud learning, hands-on exploration and regional
+              innovation at Central University of Jammu. Explore AWS technical
+              sessions, guided AWS Skill Builder learning, the AWS Cloud
+              Tournament, startup showcase, generative AI, cloud security and
+              networking. Beginners are welcome; free registration is required.
             </p>
 
             <ul class="upcoming-meta">
               <li>
-                <i class="fa-solid fa-microphone"></i>
-                Talks & keynote
+                <i class="fa-regular fa-clock"></i>
+                10:00 AM – 6:00 PM IST
               </li>
               <li>
-                <i class="fa-solid fa-diagram-project"></i>
-                Hands-on demo stations
+                <i class="fa-solid fa-location-dot"></i>
+                Aryabhatt Block, CU Jammu
+              </li>
+              <li>
+                <i class="fa-solid fa-trophy"></i>
+                AWS Cloud Tournament
+              </li>
+              <li>
+                <i class="fa-solid fa-graduation-cap"></i>
+                Skill Builder & technical sessions
               </li>
             </ul>
 
@@ -975,45 +974,43 @@
       </div>
     </section>
 
-    <!-- WhatsApp Community -->
+    <!-- Connect With Our Community -->
 
-    <section class="whatsapp-section">
-      <div class="whatsapp-card">
-        <div class="whatsapp-info">
+    <section class="whatsapp-section social-connect-section" id="connect">
+      <div class="social-connect-card">
+        <div class="social-connect-heading">
           <span class="whatsapp-kicker">
-            <i class="fa-brands fa-whatsapp"></i>
-            Community Chat
+            <i class="fa-solid fa-qrcode"></i>
+            STAY CONNECTED
           </span>
-
-          <h3 class="whatsapp-heading">Join our WhatsApp Group</h3>
-
-          <p class="whatsapp-text">
-            Get event updates, resources and community discussions straight from
-            the AWS Student Builder Group at Central University Of Jammu.
-          </p>
-
-          <a
-            href="https://chat.whatsapp.com/Jc0kMEkO30XHVKgD3YGAwX?s=sh&p=a&mlu=4&ilr=4"
-            class="whatsapp-btn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fa-brands fa-whatsapp"></i>
-            Join WhatsApp Group
-          </a>
+          <h3>Connect with AWS SBG CU Jammu</h3>
+          <p>Scan a QR code or use the link below to join our community channels and follow event updates.</p>
         </div>
 
-        <div class="whatsapp-divider"></div>
-
-        <div class="whatsapp-qr-block">
-          <div class="whatsapp-qr-frame">
-            <img
-              src="assets/whatsapp-qr.png"
-              alt="Scan to join the AWS Student Builder Group WhatsApp group"
-            />
+        <div class="community-qr-row" aria-label="WhatsApp, LinkedIn and Instagram QR codes">
+          <div class="community-qr-item">
+            <div class="community-qr-image">
+              <img src="assets/whatsapp-qr.png" alt="WhatsApp community QR code" />
+            </div>
+            <h4><i class="fa-brands fa-whatsapp"></i> WhatsApp</h4>
+            <a href="https://chat.whatsapp.com/Jc0kMEkO30XHVKgD3YGAwX?s=sh&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer">Join WhatsApp community</a>
           </div>
 
-          <span class="whatsapp-qr-label"> Scan to join instantly </span>
+          <div class="community-qr-item">
+            <div class="community-qr-image">
+              <img src="assets/linkedin-qr.png" alt="AWS SBG CU Jammu LinkedIn QR code" />
+            </div>
+            <h4><i class="fa-brands fa-linkedin"></i> LinkedIn</h4>
+            <a href="https://www.linkedin.com/company/aws-sbg-cujammu/" target="_blank" rel="noopener noreferrer">Visit LinkedIn page</a>
+          </div>
+
+          <div class="community-qr-item">
+            <div class="community-qr-image">
+              <img src="assets/instagram-qr.png" alt="AWS SBG CU Jammu Instagram QR code" />
+            </div>
+            <h4><i class="fa-brands fa-instagram"></i> Instagram</h4>
+            <a href="https://www.instagram.com/aws_sbg_cu_jammu" target="_blank" rel="noopener noreferrer">Visit Instagram page</a>
+          </div>
         </div>
       </div>
     </section>
@@ -1040,61 +1037,11 @@
           skills and building with AWS.
         </p>
 
-        <div class="social-links">
-          <!-- Instagram -->
-
-          <div class="social-wrapper">
-            <a
-              href="https://www.instagram.com/aws.cujammu"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="social-icon instagram"
-              aria-label="Instagram"
-            >
-              <i class="fab fa-instagram"></i>
-            </a>
-
-            <span class="social-label"> Instagram </span>
-          </div>
-
-          <!-- LinkedIn -->
-
-          <div class="social-wrapper">
-            <a
-              href="https://www.linkedin.com/company/aws-cloud-club-central-university-of-jammu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="social-icon linkedin"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-
-            <span class="social-label"> LinkedIn </span>
-          </div>
-
-          <!-- Meetup -->
-
-          <div class="social-wrapper">
-            <a
-              href="https://www.meetup.com/aws-cloud-club-at-central-university-of-jammu/members/?op=all"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="social-icon meetup"
-              aria-label="Meetup"
-            >
-              <i class="fa-solid fa-users"></i>
-            </a>
-
-            <span class="social-label"> Meetup </span>
-          </div>
-        </div>
-
         <div class="footer-line"></div>
 
         <p class="footer-note">
           © 2026 AWS Student Builder Group Central University Of Jammu • All
-          rights reserved
+          rights reserved <span class="footer-credit">· Made by Nadim Akhtar</span>
         </p>
       </div>
     </footer>

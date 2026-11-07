@@ -132,21 +132,29 @@ function initStatsCounter() {
 
   };
 
+  const statsSection = document.querySelector(".stats-section");
+
+  if (statsSection) {
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          statsSection.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    revealObserver.observe(statsSection);
+  }
+
   const observer = new IntersectionObserver(
     (entries, obs) => {
-
       entries.forEach((entry) => {
-
         if (entry.isIntersecting) {
-
           animateNumber(entry.target);
-
           obs.unobserve(entry.target);
-
         }
-
       });
-
     },
     { threshold: 0.6 }
   );
@@ -540,32 +548,32 @@ const events = {
 
   "community-day": {
 
-    date: "November 2026",
+    date: "20 November 2026 · 10:00 AM – 6:00 PM IST",
 
     title:
-      "AWS Student Community Day",
+      "AWS Student Community Day Jammu",
 
     description:
-      "A full day of community-led cloud learning inspired by AWS's own Community Day events across India — technical talks on AWS, generative AI and DevOps, hands-on demo stations, and open conversations with the community.",
+      "A free, in-person, student-led cloud technology conference at Central University of Jammu. The day brings together students, developers, educators and community builders for AWS technical sessions, guided AWS Skill Builder learning, an AWS Cloud Tournament, a startup showcase, talks and networking. Beginners are welcome and registration is mandatory.",
 
     category:
-      "Upcoming • Community Conference"
+      "Student Community Conference"
 
   },
 
 
   "cloud-tournament": {
 
-    date: "Coming Soon",
+    date: "19 November 2026 · 10:00 AM – 4:00 PM IST",
 
     title:
-      "Cloud Tournament",
+      "AWS Cloud Tournament – Central University of Jammu",
 
     description:
-      "A gamified, team-based cloud competition inspired by AWS GameDay and AWS Cloud Quest tournaments, where teams race through live AWS labs and scenario challenges on a shared leaderboard.",
+      "A team-based competition where students test their cloud knowledge, solve practical AWS scenarios and learn together. The tournament includes a cloud fundamentals quiz, scenario-based challenges and a final round covering compute, storage, networking and cloud security. Participants will also be introduced to AWS Builder Center and its technical articles, learning resources and builder community.",
 
     category:
-      "Upcoming • Online Labs & Tournament"
+      "Student Cloud Competition"
 
   }
 
@@ -588,12 +596,27 @@ function loadEventDetails() {
       window.location.search
     );
 
+  const path = window.location.pathname.toLowerCase();
   const eventId =
-    params.get("event");
+    params.get("event") ||
+    document.body.dataset.eventId ||
+    (path.endsWith("community-day.html") ? "community-day" :
+      path.endsWith("cloud-tournament.html") ? "cloud-tournament" : null);
 
-  const event =
-    events[eventId] ||
-    events.orientation;
+  const event = events[eventId];
+
+  if (!event) {
+    const title = document.getElementById("eventTitle");
+    const description = document.getElementById("eventDescription");
+    const date = document.getElementById("eventDate");
+    const category = document.getElementById("eventCategory");
+
+    if (title) title.textContent = "Event details unavailable";
+    if (description) description.textContent = "Please return to the Upcoming Events section and select an event to view its details.";
+    if (date) date.textContent = "";
+    if (category) category.textContent = "AWS Student Builder Group";
+    return;
+  }
 
 
   const eventDate =
@@ -608,6 +631,23 @@ function loadEventDetails() {
   const eventDescription =
     document.getElementById("eventDescription");
 
+  const communityDayProgramme =
+    document.getElementById("communityDayProgramme");
+
+  if (communityDayProgramme && eventId === "community-day") {
+    communityDayProgramme.hidden = false;
+  }
+
+  const cloudTournamentProgramme =
+    document.getElementById("cloudTournamentProgramme");
+
+  if (cloudTournamentProgramme && eventId === "cloud-tournament") {
+    cloudTournamentProgramme.hidden = false;
+  }
+
+  if (eventId === "cloud-tournament") {
+    document.title = "AWS Cloud Tournament | AWS Student Builder Group CUJ";
+  }
 
   if (eventDate) {
     eventDate.textContent =
@@ -651,3 +691,39 @@ window.addEventListener("resize", () => {
   }
 
 });
+
+/* =====================================================
+   AWS STUDENT COMMUNITY DAY COUNTDOWN
+   20 November 2026 · 10:00 AM IST
+===================================================== */
+(function initCommunityDayCountdown() {
+  const daysEl = document.getElementById("countdownDays");
+  const hoursEl = document.getElementById("countdownHours");
+  const minutesEl = document.getElementById("countdownMinutes");
+  const secondsEl = document.getElementById("countdownSeconds");
+
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+  const eventTime = new Date("2026-11-20T10:00:00+05:30").getTime();
+  const pad = (value) => String(value).padStart(2, "0");
+
+  function updateCountdown() {
+    const remaining = eventTime - Date.now();
+
+    if (remaining <= 0) {
+      daysEl.textContent = "00";
+      hoursEl.textContent = "00";
+      minutesEl.textContent = "00";
+      secondsEl.textContent = "00";
+      return;
+    }
+
+    daysEl.textContent = pad(Math.floor(remaining / 86400000));
+    hoursEl.textContent = pad(Math.floor((remaining % 86400000) / 3600000));
+    minutesEl.textContent = pad(Math.floor((remaining % 3600000) / 60000));
+    secondsEl.textContent = pad(Math.floor((remaining % 60000) / 1000));
+  }
+
+  updateCountdown();
+  window.setInterval(updateCountdown, 1000);
+})();

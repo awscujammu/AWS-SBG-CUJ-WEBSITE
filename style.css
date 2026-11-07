@@ -551,10 +551,13 @@ img {
 
 .stats-section {
   position: relative;
-
+  grid-column: 1 / -1;
+  width: 100%;
   background: #172033;
-
-  padding: 40px 0;
+  border-radius: 16px;
+  padding: 18px 12px;
+  margin-top: 4px;
+  box-shadow: 0 12px 28px rgba(23, 32, 51, 0.10);
 }
 
 .stats-container {
@@ -572,7 +575,7 @@ img {
   flex-direction: column;
   align-items: center;
 
-  padding: 10px 46px;
+  padding: 8px 34px;
 }
 
 .stat-number {
@@ -910,7 +913,9 @@ img {
 .upcoming-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(0, 820px);
+
+  justify-content: center;
 
   gap: 26px;
 }
@@ -2512,4 +2517,687 @@ img {
 
     padding: 12px 10px;
   }
+}
+
+/* =====================================================
+   COMMUNITY DAY COUNTDOWN — MATCHES THE EXISTING THEME
+===================================================== */
+.community-countdown-card {
+  display: block;
+  width: min(100%, 520px);
+  margin: 0 0 22px;
+  padding: 15px 18px;
+  border: 1px solid rgba(255, 153, 0, 0.28);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff, #fffaf2);
+  box-shadow: 0 10px 26px rgba(20, 40, 70, 0.07);
+  color: #172033;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.community-countdown-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(20, 40, 70, 0.10);
+}
+.community-register-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 9px;
+  background: #ff9900;
+  color: #172033;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+.community-register-btn:hover {
+  background: #f5a623;
+  transform: translateY(-1px);
+}
+.community-register-btn:focus-visible {
+  outline: 3px solid rgba(255, 153, 0, .35);
+  outline-offset: 3px;
+}
+.community-countdown-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #294664;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+}
+.community-countdown-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff9900;
+  box-shadow: 0 0 0 4px rgba(255,153,0,.13);
+}
+.community-countdown-units {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+.community-countdown-units > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 4px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #f0e4d2;
+}
+.community-countdown-units strong {
+  color: #172033;
+  font-size: 25px;
+  line-height: 1.1;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.community-countdown-units span {
+  margin-top: 4px;
+  color: #7f8da0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .8px;
+}
+.community-countdown-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  color: #58718f;
+  font-size: 11px;
+  font-weight: 700;
+}
+.community-countdown-footer i,
+.community-countdown-footer span {
+  color: #ff9900;
+}
+
+/* Social QR codes stay on one line on desktop. */
+.whatsapp-card {
+  max-width: 1040px;
+}
+.community-qr-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.community-qr-row .whatsapp-qr-frame {
+  width: 104px;
+  height: 104px;
+  padding: 7px;
+}
+.community-qr-row .whatsapp-qr-label {
+  white-space: nowrap;
+}
+.footer-credit {
+  color: #ff9900;
+  font-weight: 700;
+}
+@media (max-width: 700px) {
+  .community-qr-row {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 8px;
+  }
+  .community-qr-row .whatsapp-qr-frame {
+    width: clamp(76px, 22vw, 104px);
+    height: clamp(76px, 22vw, 104px);
+  }
+  .community-countdown-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* =====================================================
+   SOCIAL QR CONNECT SECTION — ORIGINAL AWS CUJ THEME
+===================================================== */
+.social-connect-card {
+  position: relative;
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  padding: 38px 36px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid #f0e4d2;
+  box-shadow: 0 18px 40px rgba(20, 40, 70, 0.07);
+}
+.social-connect-heading {
+  text-align: center;
+  margin: 0 auto 26px;
+  max-width: 620px;
+}
+.social-connect-heading .whatsapp-kicker {
+  justify-content: center;
+}
+.social-connect-heading h3 {
+  margin: 8px 0 9px;
+  color: #172033;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800;
+}
+.social-connect-heading p {
+  margin: 0;
+  color: #68778b;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.community-qr-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+.community-qr-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+}
+.community-qr-image {
+  width: 142px;
+  height: 142px;
+  padding: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eef1f5;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 9px 22px rgba(20, 40, 70, 0.08);
+}
+.community-qr-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.community-qr-item h4 {
+  margin: 13px 0 5px;
+  color: #172033;
+  font-size: 15px;
+  font-weight: 800;
+}
+.community-qr-item h4 i {
+  margin-right: 5px;
+  color: #ff9900;
+}
+.community-qr-item a {
+  color: #58718f;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  line-height: 1.5;
+}
+.community-qr-item a:hover {
+  color: #d97706;
+}
+@media (max-width: 700px) {
+  .social-connect-card {
+    padding: 28px 16px;
+  }
+  .community-qr-row {
+    gap: 10px;
+  }
+  .community-qr-image {
+    width: clamp(82px, 25vw, 118px);
+    height: clamp(82px, 25vw, 118px);
+    padding: 6px;
+    border-radius: 12px;
+  }
+  .community-qr-item h4 {
+    font-size: 12px;
+  }
+  .community-qr-item a {
+    font-size: 10px;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* =====================================================
+   VIEWPORT-FIT HERO + RESPONSIVE PAGE ALIGNMENT
+   Keeps the original AWS orange/white/navy visual theme.
+===================================================== */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+section[id], header[id], main[id] {
+  scroll-margin-top: 96px;
+}
+
+@media (min-width: 851px) {
+  .navbar {
+    height: clamp(68px, 9.7vh, 92px);
+  }
+
+  .nav-container {
+    width: min(1480px, 92%);
+  }
+
+  .nav-logo {
+    width: clamp(42px, 4.1vw, 54px);
+    height: clamp(42px, 4.1vw, 54px);
+  }
+
+  .nav-links {
+    gap: clamp(12px, 1.45vw, 24px);
+  }
+
+  .nav-links a {
+    font-size: clamp(12px, 1.05vw, 15px);
+  }
+
+  .hero {
+    min-height: calc(100svh - clamp(68px, 9.7vh, 92px));
+    height: calc(100svh - clamp(68px, 9.7vh, 92px));
+    padding: clamp(12px, 2vh, 22px) 0;
+  }
+
+  .hero-container {
+    width: min(1480px, 92%);
+    height: 100%;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+    align-items: center;
+    gap: clamp(18px, 3vw, 48px);
+  }
+
+  .hero-content {
+    min-width: 0;
+    padding-left: 0;
+  }
+
+  .hero-university {
+    margin-bottom: 5px;
+    font-size: clamp(14px, 1.25vw, 18px);
+  }
+
+  .hero-content h1 {
+    margin-bottom: 10px;
+    font-size: clamp(38px, 3.65vw, 62px);
+    line-height: .98;
+    letter-spacing: -2px;
+  }
+
+  .hero-content h1 span {
+    margin-top: 4px;
+  }
+
+  .hero-subtitle {
+    gap: 8px;
+    margin-bottom: 9px;
+    font-size: clamp(15px, 1.35vw, 20px);
+  }
+
+  .hero-subtitle b {
+    font-size: inherit;
+  }
+
+  .hero-description {
+    max-width: 620px;
+    margin-bottom: 14px;
+    font-size: clamp(13px, 1.05vw, 15px);
+    line-height: 1.5;
+  }
+
+  .hero-buttons {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .btn {
+    min-height: clamp(44px, 6vh, 54px);
+    padding: 0 clamp(17px, 2vw, 26px);
+    font-size: clamp(12px, 1vw, 14px);
+  }
+
+  .community-countdown-card {
+    width: min(100%, 570px);
+    margin: 0 0 10px;
+    padding: clamp(9px, 1.25vh, 13px) clamp(11px, 1.3vw, 17px);
+    border-radius: 14px;
+  }
+
+  .community-countdown-heading {
+    font-size: 10px;
+  }
+
+  .community-countdown-units {
+    gap: 8px;
+    margin: 8px 0;
+  }
+
+  .community-countdown-units > div {
+    padding: 6px 3px;
+  }
+
+  .community-countdown-units strong {
+    font-size: clamp(20px, 2vw, 26px);
+  }
+
+  .community-countdown-footer {
+    font-size: clamp(10px, .9vw, 12px);
+  }
+
+  .hero-mini-info {
+    gap: clamp(12px, 2vw, 26px);
+  }
+
+  .hero-mini-info > div {
+    gap: 7px;
+    font-size: clamp(11px, .95vw, 13px);
+  }
+
+  .hero-mini-info i {
+    font-size: 14px;
+  }
+
+  .hero-logo-area {
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-logo {
+    width: min(100%, clamp(300px, 34vw, 560px));
+    max-height: 78svh;
+    object-fit: contain;
+  }
+}
+
+@media (min-width: 851px) and (max-height: 760px) {
+  .hero-content h1 { font-size: clamp(36px, 3.2vw, 52px); }
+  .hero-description { font-size: 13px; line-height: 1.4; margin-bottom: 10px; }
+  .community-countdown-card { padding: 7px 11px; }
+  .community-countdown-units { margin: 6px 0; }
+  .community-countdown-units > div { padding: 4px 2px; }
+  .hero-logo { width: min(100%, 40vw, 440px); }
+}
+
+@media (max-width: 850px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+  }
+  .hero-logo-area { min-height: 0; }
+  .community-countdown-card { max-width: 520px; }
+}
+
+
+@media (max-width: 700px) {
+  .stats-section {
+    margin-top: 8px;
+    padding: 14px 8px;
+  }
+
+  .stat-item {
+    padding: 8px 14px;
+    min-width: 42%;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+}
+
+/* Community statistics appear below the full-height hero. */
+.stats-section {
+  width: min(1480px, 90%);
+  margin: 22px auto 0;
+  grid-column: auto;
+  opacity: 1;
+}
+
+.stats-section .stat-item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.stats-section.is-visible .stat-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stats-section.is-visible .stat-item:nth-of-type(3) { transition-delay: 100ms; }
+.stats-section.is-visible .stat-item:nth-of-type(5) { transition-delay: 200ms; }
+.stats-section.is-visible .stat-item:nth-of-type(7) { transition-delay: 300ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stats-section .stat-item { opacity: 1; transform: none; transition: none; }
+}
+
+/* Final desktop hero fit: balanced logo and a fully visible Community Day CTA. */
+@media (min-width: 851px) {
+  .hero {
+    height: calc(100svh - 84px);
+    min-height: 650px;
+    padding: 12px 0;
+    box-sizing: border-box;
+  }
+
+  .hero-container {
+    width: min(1480px, 92%);
+    height: 100%;
+    grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr);
+    gap: clamp(22px, 3vw, 44px);
+    align-items: center;
+  }
+
+  .hero-content {
+    min-width: 0;
+    padding: 0;
+  }
+
+  .hero-university {
+    margin-bottom: 5px;
+    font-size: clamp(15px, 1.2vw, 18px);
+  }
+
+  .hero-content h1 {
+    margin-bottom: 9px;
+    font-size: clamp(42px, 3.35vw, 58px);
+    line-height: .98;
+    letter-spacing: -2px;
+  }
+
+  .hero-content h1 span { margin-top: 3px; }
+
+  .hero-subtitle {
+    gap: 8px;
+    margin-bottom: 9px;
+    font-size: clamp(15px, 1.25vw, 19px);
+  }
+
+  .hero-subtitle b { font-size: inherit; }
+
+  .hero-description {
+    max-width: 700px;
+    margin-bottom: 13px;
+    font-size: clamp(13px, .98vw, 15px);
+    line-height: 1.45;
+  }
+
+  .hero-buttons {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .hero-buttons .btn {
+    min-height: 48px;
+    padding: 0 clamp(16px, 1.7vw, 24px);
+    font-size: 13px;
+  }
+
+  .community-countdown-card {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 10px;
+    padding: 10px 13px;
+    border-radius: 13px;
+  }
+
+  .community-countdown-heading {
+    font-size: 10px;
+    letter-spacing: .9px;
+  }
+
+  .community-countdown-units {
+    gap: 8px;
+    margin: 7px 0;
+  }
+
+  .community-countdown-units > div {
+    padding: 5px 3px;
+  }
+
+  .community-countdown-units strong {
+    font-size: clamp(20px, 1.8vw, 25px);
+  }
+
+  .community-countdown-units span {
+    margin-top: 3px;
+    font-size: 9px;
+  }
+
+  .community-countdown-footer {
+    gap: 7px;
+    font-size: clamp(10px, .85vw, 12px);
+    line-height: 1.35;
+  }
+
+  .community-register-btn {
+    display: flex;
+    width: 100%;
+    min-height: 40px;
+    box-sizing: border-box;
+    margin-top: 9px;
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .hero-mini-info {
+    gap: clamp(12px, 1.5vw, 22px);
+  }
+
+  .hero-mini-info > div {
+    gap: 6px;
+    font-size: clamp(10px, .82vw, 12px);
+  }
+
+  .hero-mini-info i { font-size: 13px; }
+
+  .hero-logo-area {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .hero-logo {
+    width: min(100%, clamp(280px, 25vw, 420px));
+    max-height: 68svh;
+  }
+}
+
+@media (min-width: 851px) and (max-height: 760px) {
+  .hero { min-height: 0; }
+  .hero-content h1 { font-size: clamp(38px, 3vw, 50px); }
+  .hero-description { font-size: 12px; line-height: 1.35; margin-bottom: 9px; }
+  .community-countdown-card { padding: 7px 11px; }
+  .community-countdown-units { margin: 5px 0; }
+  .community-countdown-units > div { padding: 3px 2px; }
+  .community-register-btn { min-height: 35px; margin-top: 6px; }
+  .hero-logo { width: min(100%, 23vw, 360px); }
+}
+
+
+/* Final refinement: compact hero actions and prevent the Community Day card
+   from being clipped by the next section on shorter desktop viewports. */
+@media (min-width: 851px) {
+  .hero {
+    height: auto;
+    min-height: calc(100svh - 84px);
+    padding: clamp(12px, 1.8vh, 22px) 0 clamp(18px, 2.4vh, 28px);
+    box-sizing: border-box;
+  }
+  .hero-container {
+    height: auto;
+    min-height: calc(100svh - 124px);
+    align-items: center;
+  }
+  .hero-content { align-self: center; }
+  .hero-buttons { gap: 10px; margin-bottom: 10px; }
+  .hero-buttons .btn {
+    min-height: 40px;
+    padding: 0 17px;
+    border-radius: 13px;
+    font-size: 12px;
+  }
+  .community-countdown-card {
+    margin-bottom: 0;
+    padding: 9px 12px;
+  }
+  .community-countdown-units { gap: 7px; margin: 6px 0; }
+  .community-countdown-units > div { padding: 4px 3px; }
+  .community-countdown-units strong { font-size: clamp(19px, 1.65vw, 23px); }
+  .community-countdown-units span { margin-top: 2px; }
+  .community-countdown-footer { font-size: clamp(10px, .8vw, 11px); }
+  .community-register-btn {
+    display: inline-flex;
+    width: auto;
+    min-height: 36px;
+    margin: 8px auto 0;
+    padding: 8px 18px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border-radius: 11px;
+    font-size: 12px;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+  .hero-logo { width: min(100%, clamp(250px, 22vw, 350px)); max-height: 58svh; }
+}
+@media (min-width: 851px) and (max-height: 760px) {
+  .hero { min-height: calc(100svh - 84px); padding-top: 8px; padding-bottom: 12px; }
+  .hero-container { min-height: 0; }
+  .hero-university { font-size: 14px; margin-bottom: 3px; }
+  .hero-content h1 { font-size: clamp(34px, 2.8vw, 44px); line-height: .96; margin-bottom: 6px; }
+  .hero-subtitle { font-size: 14px; margin-bottom: 6px; }
+  .hero-description { font-size: 11px; line-height: 1.3; margin-bottom: 7px; }
+  .hero-buttons { margin-bottom: 7px; }
+  .hero-buttons .btn { min-height: 34px; padding: 0 13px; font-size: 11px; }
+  .community-countdown-card { padding: 7px 9px; }
+  .community-countdown-heading { font-size: 9px; }
+  .community-countdown-units { margin: 4px 0; gap: 5px; }
+  .community-countdown-units > div { padding: 3px 2px; }
+  .community-countdown-units strong { font-size: 19px; }
+  .community-countdown-footer { font-size: 10px; }
+  .community-register-btn { min-height: 32px; margin-top: 6px; padding: 7px 14px; font-size: 11px; }
+  .hero-mini-info { margin-top: 6px; }
+  .hero-logo { width: min(100%, 21vw, 300px); max-height: 52svh; }
 }

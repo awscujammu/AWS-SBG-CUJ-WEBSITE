@@ -21,6 +21,8 @@
   />
 
   <!-- Main CSS -->
+  <link rel="icon" type="image/png" href="assets/cloudclublogo.png" />
+  <link rel="apple-touch-icon" href="assets/cloudclublogo.png" />
   <link rel="stylesheet" href="style.css" />
 
   <style>
@@ -220,6 +222,82 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .event-register-btn { display:inline-flex; align-items:center; gap:10px; margin-top:20px; text-decoration:none; }
+    .community-day-programme {
+      margin-top: 28px;
+      padding-top: 26px;
+      border-top: 1px solid #eef1f5;
+    }
+    .community-day-programme[hidden] { display: none; }
+    .community-day-programme h2 {
+      margin: 0 0 10px;
+      color: #172033;
+      font-size: 21px;
+    }
+    .community-day-programme-intro {
+      margin: 0 0 18px;
+      color: #64748b;
+      line-height: 1.65;
+    }
+    .community-day-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .community-day-highlight-grid > div {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 16px;
+      border: 1px solid #f0e4d2;
+      border-radius: 14px;
+      background: #fffaf3;
+    }
+    .community-day-highlight-grid i { color: #ff9900; font-size: 20px; }
+    .community-day-highlight-grid strong { color: #172033; }
+    .community-day-highlight-grid span {
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .community-day-agenda-title { margin-top: 26px !important; }
+    .community-day-agenda {
+      display: grid;
+      gap: 0;
+      border: 1px solid #eef1f5;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .community-day-agenda > div {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 14px;
+      padding: 14px 16px;
+      border-bottom: 1px solid #eef1f5;
+    }
+    .community-day-agenda > div:last-child { border-bottom: 0; }
+    .community-day-agenda time { color: #d97706; font-weight: 800; font-size: 13px; }
+    .community-day-agenda span {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .community-day-agenda strong { color: #172033; font-size: 14px; }
+    .community-day-venue-note {
+      margin: 16px 0 0;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .community-day-venue-note i { color: #ff9900; margin-right: 7px; }
+    @media (max-width: 600px) {
+      .community-day-highlight-grid { grid-template-columns: 1fr; }
+      .community-day-agenda > div { grid-template-columns: 88px 1fr; gap: 8px; padding: 12px; }
+    }
   </style>
 </head>
 
@@ -329,11 +407,54 @@
 
         </div>
 
+        <section class="community-day-programme" id="communityDayProgramme" hidden>
+          <h2>What to expect</h2>
+          <p class="community-day-programme-intro">A full day of cloud learning, practical activities and conversations with the student and AWS community.</p>
+          <div class="community-day-highlight-grid">
+            <div><i class="fa-solid fa-graduation-cap"></i><strong>AWS Skill Builder</strong><span>Guided learning and an introduction to AWS cloud concepts and services.</span></div>
+            <div><i class="fa-solid fa-trophy"></i><strong>AWS Cloud Tournament</strong><span>Interactive team challenges as part of the day's activities.</span></div>
+            <div><i class="fa-solid fa-laptop-code"></i><strong>Technical sessions</strong><span>Sessions on cloud computing, generative AI, machine learning, serverless development and cloud security.</span></div>
+            <div><i class="fa-solid fa-lightbulb"></i><strong>Startup showcase</strong><span>Student innovation, cloud-based startup ideas and guidance on AWS resources.</span></div>
+            <div><i class="fa-solid fa-microphone"></i><strong>Talks and discussions</strong><span>Learn from AWS community members and technology professionals.</span></div>
+            <div><i class="fa-solid fa-people-group"></i><strong>Networking</strong><span>Meet students, builders, founders, educators and community leaders.</span></div>
+          </div>
+          <h2 class="community-day-agenda-title">Programme outline</h2>
+          <p class="community-day-programme-intro">The event includes the activities below across the main auditorium and breakout rooms. Exact session timings and the speaker lineup will be announced by the organisers.</p>
+          <div class="community-day-agenda">
+            <div><time>Welcome</time><span><strong>Check-in and opening</strong>Participant check-in, community welcome and opening remarks.</span></div>
+            <div><time>Learn</time><span><strong>Technical sessions and talks</strong>Cloud fundamentals, AWS services and emerging technology topics.</span></div>
+            <div><time>Explore</time><span><strong>Guided learning and breakout activities</strong>AWS Skill Builder learning and parallel activities in the R1 and R2 rooms.</span></div>
+            <div><time>Compete</time><span><strong>AWS Cloud Tournament</strong>Interactive cloud knowledge and problem-solving challenges.</span></div>
+            <div><time>Connect</time><span><strong>Startup showcase and networking</strong>Student ideas, community conversations, feedback and closing activities.</span></div>
+          </div>
+          <p class="community-day-venue-note"><i class="fa-solid fa-location-dot"></i>Main venue: Aryabhatt Block Auditorium, Central University of Jammu. Breakout rooms: R1 and R2, third floor.</p>
+          <p class="community-day-venue-note"><i class="fa-solid fa-ticket"></i>Registration is free but mandatory. Bring a college or government-issued ID for entry verification.</p>
+          <a class="community-register-btn event-register-btn" href="https://www.meetup.com/aws-sbg-at-central-university-of-jammu/events/316878843/" target="_blank" rel="noopener noreferrer">Register for Community Day <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </section>
+        <section class="community-day-programme" id="cloudTournamentProgramme" hidden>
+          <h2>Tournament format</h2>
+          <p class="community-day-programme-intro">Work with a team, put your cloud fundamentals to the test and solve practical AWS scenarios. Basic AWS knowledge is helpful, but beginners are welcome.</p>
+          <div class="community-day-highlight-grid">
+            <div><i class="fa-solid fa-circle-question"></i><strong>Cloud fundamentals quiz</strong><span>Test your understanding of core cloud concepts and AWS services.</span></div>
+            <div><i class="fa-solid fa-puzzle-piece"></i><strong>Scenario-based challenges</strong><span>Work through practical situations involving compute, storage, networking and cloud security.</span></div>
+            <div><i class="fa-solid fa-flag-checkered"></i><strong>Final round</strong><span>Teams move through the competition towards a final challenge.</span></div>
+            <div><i class="fa-solid fa-book-open"></i><strong>AWS Builder Center</strong><span>Get introduced to technical articles, learning resources and the AWS builder community.</span></div>
+          </div>
+          <h2 class="community-day-agenda-title">Before you arrive</h2>
+          <div class="community-day-agenda">
+            <div><time>Bring</time><span><strong>Laptop and charger</strong>Bring your own laptop and charger for the activities.</span></div>
+            <div><time>Know</time><span><strong>Cloud basics</strong>Some AWS knowledge can help, but beginners are welcome.</span></div>
+            <div><time>Join</time><span><strong>Work as a team</strong>Collaborate with other students to answer questions and solve the scenarios.</span></div>
+          </div>
+          <p class="community-day-venue-note"><i class="fa-solid fa-calendar"></i>Thursday, 19 November 2026 · 10:00 AM–4:00 PM IST. The event listing does not currently specify a venue; check the organiser's event page for updates.</p>
+          <a class="community-register-btn event-register-btn" href="https://www.meetup.com/aws-sbg-at-central-university-of-jammu/events/317219188/" target="_blank" rel="noopener noreferrer">View Tournament Event <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </section>
+
         <a
-          href="index.html#past-events"
+          href="index.html#upcoming-events"
           class="event-home-btn"
         >
-          View Past Events
+          Back to Upcoming Events
           <i class="fa-solid fa-arrow-right"></i>
         </a>
 

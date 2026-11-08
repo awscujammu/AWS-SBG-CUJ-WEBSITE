@@ -3304,3 +3304,109 @@ section[id], header[id], main[id] {
   .community-countdown-units > div { padding: 4px 3px; }
   .community-register-btn { min-height: 38px; margin-top: 7px; }
 }
+
+/* Final first-screen layout: keep the complete hero visible before statistics. */
+@media (min-width: 851px) {
+  .hero {
+    height: calc(100svh - 88px);
+    min-height: 620px;
+    padding: 14px 0 18px;
+    box-sizing: border-box;
+  }
+
+  .hero-container {
+    width: min(1560px, 92%);
+    height: 100%;
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, .8fr);
+    gap: clamp(28px, 3.2vw, 54px);
+    align-items: center;
+  }
+
+  .hero-content { padding: 0; min-width: 0; }
+  .hero-university {
+    font-size: clamp(17px, 1.25vw, 20px);
+    margin-bottom: 7px;
+  }
+  .hero-content h1 {
+    font-size: clamp(48px, 3.65vw, 64px);
+    line-height: .99;
+    margin-bottom: 11px;
+    letter-spacing: -2.2px;
+  }
+  .hero-content h1 span { margin-top: 4px; }
+  .hero-subtitle {
+    font-size: clamp(17px, 1.3vw, 21px);
+    gap: 10px;
+    margin-bottom: 11px;
+  }
+  .hero-description {
+    max-width: 790px;
+    font-size: clamp(14px, 1.02vw, 16px);
+    line-height: 1.48;
+    margin-bottom: 15px;
+  }
+  .hero-buttons { gap: 14px; margin-bottom: 14px; }
+  .hero-buttons .btn {
+    min-height: 52px;
+    padding: 0 clamp(18px, 1.8vw, 27px);
+    font-size: 14px;
+  }
+  .community-countdown-card {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    margin: 0 0 12px;
+    padding: 12px 15px;
+  }
+  .community-countdown-heading { font-size: 11px; }
+  .community-countdown-units { gap: 9px; margin: 8px 0; }
+  .community-countdown-units > div { padding: 7px 4px; }
+  .community-countdown-units strong { font-size: clamp(23px, 1.95vw, 29px); }
+  .community-countdown-units span { font-size: 10px; margin-top: 4px; }
+  .community-countdown-footer { font-size: clamp(12px, .9vw, 14px); gap: 8px; }
+  .community-register-btn {
+    width: auto;
+    min-width: min(320px, 100%);
+    min-height: 44px;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .hero-mini-info { gap: clamp(14px, 1.6vw, 24px); }
+  .hero-mini-info > div { font-size: clamp(12px, .9vw, 14px); gap: 7px; }
+  .hero-mini-info i { font-size: 15px; }
+  .hero-logo-area { height: 100%; min-height: 0; }
+  .hero-logo {
+    width: min(100%, clamp(340px, 27vw, 450px));
+    max-height: 70svh;
+  }
+
+  /* The statistics section remains the next section, below the opening viewport. */
+  .stats-section { margin-top: 24px; }
+}
+
+
+/* LinkedIn link beside the footer creator credit */
+.footer-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-left: 6px;
+  border-radius: 4px;
+  color: #0a66c2;
+  font-size: 20px;
+  text-decoration: none;
+  vertical-align: -2px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.footer-linkedin:hover {
+  color: #004182;
+  transform: translateY(-2px);
+}
+.footer-linkedin:focus-visible {
+  outline: 2px solid #0a66c2;
+  outline-offset: 3px;
+}
